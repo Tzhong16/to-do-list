@@ -3,12 +3,11 @@ import Input from './components/input';
 import NavBar from './components/navBar';
 import Notes from './components/notes';
 import { paginate } from './utils/paginate';
-// import Pagination from './components/common/pagination';
 import Pagination from 'react-js-pagination';
 import axios from 'axios';
 import './App.css';
 
-const apiEndpoint = 'http://jsonplaceholder.typicode.com/todos';
+const apiEndpoint = 'https://jsonplaceholder.typicode.com/todos';
 
 class App extends Component {
   state = {
@@ -62,13 +61,6 @@ class App extends Component {
           note={this.state.todo.title}
         />
         <Notes todos={todos} />
-        {/* <Pagination
-          currentPage={this.state.currentPage}
-          itermsCountPerPage={this.state.paginateRange}
-          itemsCount={count}
-          pageSize={this.state.pageSize}
-          onPageChange={this.handlePageChange}
-        /> */}
         <div className="container">
           <Pagination
             activePage={currentPage}
