@@ -37,6 +37,12 @@ class App extends Component {
     this.setState({ todo });
   };
 
+  handleDelete = async todo => {
+    await axios.delete(apiEndpoint + '/' + todo.id);
+    const todos = this.state.todos.filter(t => t.id !== todo.id);
+    this.setState({ todos });
+  };
+
   handlePageChange = page => {
     this.setState({ currentPage: page });
   };
@@ -60,7 +66,7 @@ class App extends Component {
           onChange={this.handleChange}
           note={this.state.todo.title}
         />
-        <Notes todos={todos} />
+        <Notes todos={todos} onDelete={this.handleDelete} />
         <div className="container">
           <Pagination
             activePage={currentPage}
@@ -71,7 +77,6 @@ class App extends Component {
             activeLinkClass={'page-link'}
             itemClass={'page-item'}
             linkClass={'page-link'}
-            hideFirstLastPages={true}
           />
         </div>
       </React.Fragment>

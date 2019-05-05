@@ -13,7 +13,13 @@ class Input extends Component {
               className="form-control p-2 w-100 m-auto"
               placeholder="Input something to do..."
             />
-            <button className="btn  btn-primary flex-shrink-1 ml-2">
+            <button
+              className={
+                this.props.note === ''
+                  ? 'btn  btn-primary flex-shrink-1 ml-2 disabled'
+                  : 'btn  btn-primary flex-shrink-1 ml-2 '
+              }
+            >
               Create
             </button>
           </div>
